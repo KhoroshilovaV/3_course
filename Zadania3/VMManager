@@ -1,0 +1,10 @@
+    // Абстрактный класс для управления виртуальными машинами
+    public abstract static class VMManager {
+        protected VirtualMachine virtualMachine;
+
+        public VMManager(VirtualMachine virtualMachine) {
+            this.virtualMachine = virtualMachine;
+        }
+
+        public abstract void manage(); // Метод для управления
+    }
