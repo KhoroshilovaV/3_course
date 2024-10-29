@@ -1,0 +1,22 @@
+    // Реализация Hyper-V
+    public static class HyperV implements VirtualMachine {
+        @Override
+        public void start() {
+            System.out.println("Hyper-V: Запуск виртуальной машины");
+        }
+
+        @Override
+        public void stop() {
+            System.out.println("Hyper-V: Остановка виртуальной машины");
+        }
+
+        @Override
+        public void restart() {
+            System.out.println("Hyper-V: Перезапуск виртуальной машины");
+        }
+
+        @Override
+        public void status() {
+            System.out.println("Hyper-V: Статус виртуальной машины");
+        }
+    }
