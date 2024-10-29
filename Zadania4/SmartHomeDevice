@@ -1,0 +1,8 @@
+    public interface SmartHomeDevice {
+        String getDeviceName();
+
+        void turnOn();
+
+        void turnOff();
+    }
+}
