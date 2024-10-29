@@ -1,0 +1,22 @@
+    // Реализация VirtualBox
+    public static class VirtualBox implements VirtualMachine {
+        @Override
+        public void start() {
+            System.out.println("VirtualBox: Запуск виртуальной машины");
+        }
+
+        @Override
+        public void stop() {
+            System.out.println("VirtualBox: Остановка виртуальной машины");
+        }
+
+        @Override
+        public void restart() {
+            System.out.println("VirtualBox: Перезапуск виртуальной машины");
+        }
+
+        @Override
+        public void status() {
+            System.out.println("VirtualBox: Статус виртуальной машины");
+        }
+    }
