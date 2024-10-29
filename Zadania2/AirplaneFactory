@@ -1,0 +1,8 @@
+class AirplaneFactory implements AircraftFactory {
+    AirplaneFactory() {
+    }
+
+    public Aircraft createAircraft() {
+        return new Airplane();
+    }
+}
