@@ -1,0 +1,7 @@
+    // Интерфейс для виртуальной машины
+    public interface VirtualMachine {
+        void start(); // Метод для запуска
+        void stop(); // Метод для остановки
+        void restart(); // Метод для перезапуска
+        void status(); // Метод для проверки статуса
+    }
