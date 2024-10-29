@@ -1,0 +1,13 @@
+    // Менеджер для VirtualBox
+    public static class VirtualBoxManager extends VMManager {
+        public VirtualBoxManager(VirtualMachine virtualMachine) {
+            super(virtualMachine);
+        }
+
+        @Override
+        public void manage() {
+            System.out.println("Управление VirtualBox:");
+            virtualMachine.start();
+            virtualMachine.status();
+        }
+    }
