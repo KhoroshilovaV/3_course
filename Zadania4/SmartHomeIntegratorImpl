@@ -1,0 +1,5 @@
+    public static class SmartHomeIntegratorImpl {
+        private final Map<String, SmartHomeAdapter> adapters = new HashMap();
+
+        public SmartHomeIntegratorImpl() {
+        }
