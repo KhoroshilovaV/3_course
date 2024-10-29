@@ -1,0 +1,16 @@
+class ToyFactory {
+    ToyFactory() {
+    }
+
+    public static Toy createToy(String toyType) {
+        switch (toyType.toLowerCase()) {
+            case "мяч":
+                return new Ball();
+            case "кукла":
+                return new Doll();
+            case "конструктор":
+                return new Constructor();
+            default:
+                throw new IllegalArgumentException("Unknown toy type: " + toyType);
+        }
+    }
