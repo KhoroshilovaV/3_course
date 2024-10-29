@@ -1,0 +1,8 @@
+class Helicopter implements Aircraft {
+    Helicopter() {
+    }
+
+    public void fly() {
+        System.out.println("Вертолет набирает высоту.");
+    }
+}
