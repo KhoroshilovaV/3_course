@@ -1,0 +1,19 @@
+public class Main {
+    // Основной метод
+    public static void main(String[] args) {
+        // Создаём виртуальную машину VMware и управляем ей
+        VirtualMachine vmware = new VMware();
+        VMManager vmwareManager = new VMwareManager(vmware);
+        vmwareManager.manage();
+
+        // Создаём виртуальную машину Hyper-V и управляем ей
+        VirtualMachine hyperV = new HyperV();
+        VMManager hyperVManager = new HyperVManager(hyperV);
+        hyperVManager.manage();
+
+        // Создаём виртуальную машину VirtualBox и управляем ей
+        VirtualMachine virtualBox = new VirtualBox();
+        VMManager virtualBoxManager = new VirtualBoxManager(virtualBox);
+        virtualBoxManager.manage();
+    }
+}
