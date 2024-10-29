@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class Main {
+    public Main() {
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Укажите тип игрушки, с которой вы хотите играть( мяч, кукла, конструктор): ");
+        String toyType = scanner.nextLine().trim();
+
+        try {
+            Toy toy = ToyFactory.createToy(toyType);
+            toy.play();
+        } catch (IllegalArgumentException var4) {
+            System.out.println(var4.getMessage());
+        }
+
+    }
+}
