@@ -1,0 +1,13 @@
+    // Менеджер для Hyper-V
+    public static class HyperVManager extends VMManager {
+        public HyperVManager(VirtualMachine virtualMachine) {
+            super(virtualMachine);
+        }
+
+        @Override
+        public void manage() {
+            System.out.println("Управление Hyper-V:");
+            virtualMachine.start();
+            virtualMachine.status();
+        }
+    }
