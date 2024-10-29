@@ -1,0 +1,8 @@
+    public static class MyHomeAdapter implements SmartHomeAdapter {
+        public MyHomeAdapter() {
+        }
+
+        public SmartHomeDevice getDevice(String deviceName) {
+            return new MyHomeDevice(deviceName);
+        }
+    }
