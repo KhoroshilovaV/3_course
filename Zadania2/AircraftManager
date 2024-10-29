@@ -1,0 +1,12 @@
+class AircraftManager {
+    private AircraftFactory factory;
+
+    public AircraftManager(AircraftFactory factory) {
+        this.factory = factory;
+    }
+
+    public void manageAircraft() {
+        Aircraft aircraft = this.factory.createAircraft();
+        aircraft.fly();
+    }
+}
