@@ -1,5 +1,34 @@
-    public static class SmartHomeIntegratorImpl {
+ public static class SmartHomeIntegratorImpl {
         private final Map<String, SmartHomeAdapter> adapters = new HashMap();
 
         public SmartHomeIntegratorImpl() {
         }
+
+        public void addAdapter(String systemName, SmartHomeAdapter adapter) {
+            this.adapters.put(systemName, adapter);
+        }
+
+        public void controlDevice(String systemName, String deviceName, String command) {
+            SmartHomeAdapter adapter = (SmartHomeAdapter)this.adapters.get(systemName);
+            if (adapter != null) {
+                SmartHomeDevice device = adapter.getDevice(deviceName);
+                if (device != null) {
+                    switch (command) {
+                        case "on":
+                            device.turnOn();
+                            break;
+                        case "off":
+                            device.turnOff();
+                            break;
+                        default:
+                            System.out.println("Неизвестная команда: " + command);
+                    }
+                } else {
+                    System.out.println("Устройство не найдено: " + deviceName);
+                }
+            } else {
+                System.out.println("Система не найдена: " + systemName);
+            }
+
+        }
+    }
