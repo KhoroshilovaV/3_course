@@ -1,0 +1,19 @@
+    public static class MyHomeDevice implements SmartHomeDevice {
+        private final String deviceName;
+
+        public MyHomeDevice(String deviceName) {
+            this.deviceName = deviceName;
+        }
+
+        public String getDeviceName() {
+            return this.deviceName;
+        }
+
+        public void turnOn() {
+            System.out.println("Включение устройства " + this.deviceName + " в системе MyHome");
+        }
+
+        public void turnOff() {
+            System.out.println("Выключение устройства " + this.deviceName + " в системе MyHome");
+        }
+    }
