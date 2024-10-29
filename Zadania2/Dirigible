@@ -1,0 +1,8 @@
+class Dirigible implements Aircraft {
+    Dirigible() {
+    }
+
+    public void fly() {
+        System.out.println("Дирижабль медленно плывет по воздуху.");
+    }
+}
