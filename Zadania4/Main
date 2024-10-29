@@ -1,0 +1,11 @@
+public class Main {
+public static void main(String[] args) {
+        SmartHomeIntegratorImpl integrator = new SmartHomeIntegratorImpl();
+        integrator.addAdapter("MyHome", new MyHomeAdapter());
+        integrator.controlDevice("MyHome", "Лампа", "on");
+        integrator.controlDevice("MyHome", "Телевизор", "off");
+        integrator.controlDevice("MyHome", "Светильник", "on");
+        integrator.controlDevice("MyHome", "Музыкальный центр", "off");
+        integrator.controlDevice("MyHome", "Полив", "on");
+    }
+}
