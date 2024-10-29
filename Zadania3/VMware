@@ -1,0 +1,22 @@
+    // Реализация VMware
+    public static class VMware implements VirtualMachine {
+        @Override
+        public void start() {
+            System.out.println("VMware: Запуск виртуальной машины");
+        }
+
+        @Override
+        public void stop() {
+            System.out.println("VMware: Остановка виртуальной машины");
+        }
+
+        @Override
+        public void restart() {
+            System.out.println("VMware: Перезапуск виртуальной машины");
+        }
+
+        @Override
+        public void status() {
+            System.out.println("VMware: Статус виртуальной машины");
+        }
+    }
