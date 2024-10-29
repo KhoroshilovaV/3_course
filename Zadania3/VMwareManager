@@ -1,0 +1,13 @@
+    // Менеджер для VMware
+    public static class VMwareManager extends VMManager {
+        public VMwareManager(VirtualMachine virtualMachine) {
+            super(virtualMachine);
+        }
+
+        @Override
+        public void manage() {
+            System.out.println("Управление VMware:");
+            virtualMachine.start();
+            virtualMachine.status();
+        }
+    }
