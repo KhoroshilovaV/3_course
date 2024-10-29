@@ -1,0 +1,3 @@
+public interface SmartHomeAdapter {
+        SmartHomeDevice getDevice(String var1);
+    }
