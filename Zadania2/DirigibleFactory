@@ -1,0 +1,8 @@
+class DirigibleFactory implements AircraftFactory {
+    DirigibleFactory() {
+    }
+
+    public Aircraft createAircraft() {
+        return new Dirigible();
+    }
+}
