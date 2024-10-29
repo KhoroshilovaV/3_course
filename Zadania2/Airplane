@@ -1,0 +1,8 @@
+class Airplane implements Aircraft {
+    Airplane() {
+    }
+
+    public void fly() {
+        System.out.println("Самолет взлетел с взлетной полосы.");
+    }
+}
