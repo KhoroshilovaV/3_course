@@ -1,0 +1,8 @@
+class HelicopterFactory implements AircraftFactory {
+    HelicopterFactory() {
+    }
+
+    public Aircraft createAircraft() {
+        return new Helicopter();
+    }
+}
