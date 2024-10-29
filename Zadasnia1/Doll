@@ -1,0 +1,8 @@
+class Doll implements Toy {
+    Doll() {
+    }
+
+    public void play() {
+        System.out.println("Вы играете с куклой!");
+    }
+}
