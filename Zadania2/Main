@@ -1,0 +1,13 @@
+public class Main {
+    public Main() {
+    }
+
+    public static void main(String[] args) {
+        AircraftManager airplaneManager = new AircraftManager(new AirplaneFactory());
+        airplaneManager.manageAircraft();
+        AircraftManager helicopterManager = new AircraftManager(new HelicopterFactory());
+        helicopterManager.manageAircraft();
+        AircraftManager dirigibleManager = new AircraftManager(new DirigibleFactory());
+        dirigibleManager.manageAircraft();
+    }
+}
