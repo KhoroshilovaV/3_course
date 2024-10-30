@@ -1,0 +1,29 @@
+class Email {
+    private int id;
+    private int userId;
+    private String content;
+    private String status;
+
+    public Email(int id, int userId, String content) {
+        this.id = id;
+        this.userId = userId;
+        this.content = content;
+        this.status = "waiting";
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public int getUserId() {
+        return this.userId;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+}
