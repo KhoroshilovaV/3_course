@@ -1,0 +1,60 @@
+import java.io.PrintStream;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Random;
+
+class EmailNotificationSystem {
+    private static Map<Integer, User> users = new HashMap();
+    private static Map<Integer, Email> emails = new HashMap();
+    private static int userIdCounter = 1;
+    private static int emailIdCounter = 1;
+
+    EmailNotificationSystem() {
+    }
+
+    public static void main(String[] args) {
+        User user1 = createUser("user@example.com");
+        User user2 = createUser("user2@example.com");
+        user1.subscribe("delivery");
+        user2.subscribe("error");
+        sendEmail(user1.getId(), "Важное сообщение");
+        sendEmail(user2.getId(), "Неполадки");
+    }
+
+    private static User createUser(String email) {
+        User user = new User(userIdCounter++, email);
+        users.put(user.getId(), user);
+        PrintStream var10000 = System.out;
+        int var10001 = user.getId();
+        var10000.println("Пользователь с ID " + var10001 + " и email " + email + " создан.");
+        return user;
+    }
+
+    private static void sendEmail(int userId, String content) {
+        Email email = new Email(emailIdCounter++, userId, content);
+        emails.put(email.getId(), email);
+        System.out.println("Пользователь с ID " + userId + " отправляет письмо с ID " + email.getId() + ".");
+        String status = trySendingEmail();
+        updateEmailStatus(email.getId(), status);
+    }
+
+    private static String trySendingEmail() {
+        return (new Random()).nextBoolean() ? "delivered" : "error";
+    }
+
+    private static void updateEmailStatus(int emailId, String status) {
+        Email email = (Email)emails.get(emailId);
+        email.setStatus(status);
+        notifyUser(email.getUserId(), emailId, status);
+    }
+
+    private static void notifyUser(int userId, int emailId, String status) {
+        User user = (User)users.get(userId);
+        if ("delivered".equals(status) && user.getSubscriptions().contains("delivery")) {
+            System.out.println("Уведомление: Ваше письмо " + emailId + " было доставлено на " + user.getEmail() + ".");
+        } else if ("error".equals(status) && user.getSubscriptions().contains("error")) {
+            System.out.println("Уведомление: Ошибка при отправке письма " + emailId + " на " + user.getEmail() + ".");
+        }
+
+    }
+}
