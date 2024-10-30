@@ -1,0 +1,31 @@
+import java.util.HashSet;
+import java.util.Set;
+
+class User {
+    private int id;
+    private String email;
+    private Set<String> subscriptions;
+
+    public User(int id, String email) {
+        this.id = id;
+        this.email = email;
+        this.subscriptions = new HashSet();
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public Set<String> getSubscriptions() {
+        return this.subscriptions;
+    }
+
+    public void subscribe(String notificationType) {
+        this.subscriptions.add(notificationType);
+        System.out.println("Пользователь с ID " + this.id + " подписался на уведомления о " + notificationType + ".");
+    }
+}
