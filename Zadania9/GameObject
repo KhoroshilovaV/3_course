@@ -1,0 +1,21 @@
+class GameObject {
+    private String type;
+    private int id;
+
+    public GameObject(String type, int id) {
+        this.type = type;
+        this.id = id;
+    }
+
+    public String getType() {
+        return this.type;
+    }
+
+    public int getId() {
+        return this.id;
+    }
+
+    public void update() {
+        System.out.println(this.type + " с ID " + this.id + " обновлен.");
+    }
+}
