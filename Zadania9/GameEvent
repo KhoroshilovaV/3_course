@@ -1,0 +1,27 @@
+import java.io.PrintStream;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+class GameEvent {
+    private List<Player> players = new ArrayList();
+
+    public GameEvent() {
+    }
+
+    public void addPlayer(Player player) {
+        this.players.add(player);
+    }
+
+    public void notifyPlayers(String message) {
+        Iterator var2 = this.players.iterator();
+
+        while(var2.hasNext()) {
+            Player player = (Player)var2.next();
+            PrintStream var10000 = System.out;
+            String var10001 = player.getName();
+            var10000.println("Уведомление для " + var10001 + ": " + message);
+        }
+
+    }
+}
