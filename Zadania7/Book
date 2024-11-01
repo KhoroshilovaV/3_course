@@ -1,0 +1,30 @@
+public class Book {
+    private String title;
+    private String author;
+    private String genre;
+    private int pages;
+
+    // Конструктор Book, доступный только для Builder
+    public Book(BookBuilder builder) {
+        this.title = builder.title;
+        this.author = builder.author;
+        this.genre = builder.genre;
+        this.pages = builder.pages;
+    }
+
+    @Override
+    public String toString() {
+        return "Книга{" +
+                "Название='" + title + '\'' +
+                ", Автор='" + author + '\'' +
+                ", Жанр='" + genre + '\'' +
+                ", Страниц=" + pages +
+                '}';
+    }
+    
+    // Геттеры для доступа к полям
+    public String getTitle() { return title; }
+    public String getAuthor() { return author; }
+    public String getGenre() { return genre; }
+    public int getPages() { return pages; }
+}
