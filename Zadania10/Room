@@ -1,0 +1,25 @@
+class Room {
+    private int number;
+    private boolean available;
+
+    public Room(int number) {
+        this.number = number;
+        this.available = true;
+    }
+
+    public int getNumber() {
+        return this.number;
+    }
+
+    public boolean isAvailable() {
+        return this.available;
+    }
+
+    public void book() {
+        this.available = false;
+    }
+
+    public void release() {
+        this.available = true;
+    }
+}
