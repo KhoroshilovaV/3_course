@@ -2,27 +2,30 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class Course extends Component {
+class Course extends Component {
     private String name;
-    private List<Component> components = new ArrayList<>();
+    private List<Component> components = new ArrayList();
 
     public Course(String name) {
         this.name = name;
     }
 
     public void add(Component component) {
-        components.add(component);
+        this.components.add(component);
     }
 
     public void remove(Component component) {
-        components.remove(component);
+        this.components.remove(component);
     }
 
-    @Override
     public void display() {
-        System.out.println("Курс: " + name);
-        for (Component component : components) {
+        System.out.println("Курс: " + this.name);
+        Iterator var1 = this.components.iterator();
+
+        while(var1.hasNext()) {
+            Component component = (Component)var1.next();
             component.display();
         }
+
     }
 }
