@@ -1,0 +1,28 @@
+import java.util.Scanner;
+
+public class Main {
+    public Main() {
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        GameSettingsManager settingsManager = new GameSettingsManager();
+        System.out.print("Введите ширину разрешения: ");
+        int width = scanner.nextInt();
+        System.out.print("Введите высоту разрешения: ");
+        int height = scanner.nextInt();
+        System.out.print("Полноэкранный режим (true/false): ");
+        boolean fullscreen = scanner.nextBoolean();
+        scanner.nextLine();
+        System.out.print("Введите схему управления: ");
+        String controlScheme = scanner.nextLine();
+        GameSettings settings = new GameSettings(width, height, fullscreen, controlScheme);
+        settingsManager.saveSettings(settings);
+        GameSettings loadedSettings = settingsManager.loadSettings();
+        if (loadedSettings != null) {
+            System.out.println("Загруженные настройки: " + String.valueOf(loadedSettings));
+        }
+
+        scanner.close();
+    }
+}
