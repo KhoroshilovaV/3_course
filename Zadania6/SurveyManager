@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+class SurveyManager {
+    private List<Survey> surveys = new ArrayList();
+
+    SurveyManager() {
+    }
+
+    public void addSurvey(Survey survey) {
+        this.surveys.add(survey);
+    }
+
+    public void displaySurveys() {
+        Iterator var1 = this.surveys.iterator();
+
+        while(var1.hasNext()) {
+            Survey survey = (Survey)var1.next();
+            survey.display();
+            System.out.println();
+        }
+
+    }
+}
