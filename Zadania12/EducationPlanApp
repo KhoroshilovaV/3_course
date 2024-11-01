@@ -1,0 +1,36 @@
+import java.util.Scanner;
+
+public class EducationPlanApp {
+    public EducationPlanApp() {
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Введите название учебной программы: ");
+        String programName = scanner.nextLine();
+        Program program = new Program(programName);
+
+        while(true) {
+            System.out.print("Введите название курса (или 'exit' для выхода): ");
+            String courseName = scanner.nextLine();
+            if (courseName.equalsIgnoreCase("exit")) {
+                program.display();
+                scanner.close();
+                return;
+            }
+
+            Course course = new Course(courseName);
+
+            while(true) {
+                System.out.print("Введите название предмета (или 'exit' для выхода из курса): ");
+                String subjectName = scanner.nextLine();
+                if (subjectName.equalsIgnoreCase("exit")) {
+                    program.addCourse(course);
+                    break;
+                }
+
+                course.add(new Subject(subjectName));
+            }
+        }
+    }
+}
