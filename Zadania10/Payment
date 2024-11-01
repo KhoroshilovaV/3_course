@@ -1,0 +1,9 @@
+class Payment {
+    Payment() {
+    }
+
+    public boolean processPayment(double amount) {
+        System.out.println("Обработка платежа на сумму: $" + amount);
+        return true;
+    }
+}
