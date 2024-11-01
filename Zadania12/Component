@@ -1,0 +1,6 @@
+abstract class Component {
+    Component() {
+    }
+
+    public abstract void display();
+}
