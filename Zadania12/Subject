@@ -1,0 +1,12 @@
+public class Subject extends Component {
+    private String name;
+
+    public Subject(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void display() {
+        System.out.println("Предмет: " + name);
+    }
+}
