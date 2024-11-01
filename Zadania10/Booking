@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.List;
+
+class Booking {
+    private List<Room> bookedRooms = new ArrayList();
+
+    public Booking() {
+    }
+
+    public boolean bookRoom(Room room) {
+        if (room.isAvailable()) {
+            room.book();
+            this.bookedRooms.add(room);
+            System.out.println("Номер " + room.getNumber() + " забронирован.");
+            return true;
+        } else {
+            System.out.println("Номер " + room.getNumber() + " недоступен.");
+            return false;
+        }
+    }
+
+    public void cancelBooking(Room room) {
+        if (this.bookedRooms.remove(room)) {
+            room.release();
+            System.out.println("Бронирование номера " + room.getNumber() + " отменено.");
+        } else {
+            System.out.println("Номер " + room.getNumber() + " не забронирован.");
+        }
+
+    }
+}
