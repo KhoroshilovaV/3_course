@@ -1,0 +1,61 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+class HotelFacade {
+    private List<Room> rooms = new ArrayList();
+    private Booking booking = new Booking();
+    private Payment payment = new Payment();
+
+    public HotelFacade() {
+        for(int i = 1; i <= 5; ++i) {
+            this.rooms.add(new Room(i));
+        }
+
+    }
+
+    public boolean checkAvailability(int roomNumber) {
+        Iterator var2 = this.rooms.iterator();
+
+        Room room;
+        do {
+            if (!var2.hasNext()) {
+                return false;
+            }
+
+            room = (Room)var2.next();
+        } while(room.getNumber() != roomNumber);
+
+        return room.isAvailable();
+    }
+
+    public boolean bookRoom(int roomNumber, double amount) {
+        Iterator var4 = this.rooms.iterator();
+
+        Room room;
+        do {
+            if (!var4.hasNext()) {
+                return false;
+            }
+
+            room = (Room)var4.next();
+        } while(room.getNumber() != roomNumber || !this.booking.bookRoom(room) || !this.payment.processPayment(amount));
+
+        return true;
+    }
+
+    public void cancelRoom(int roomNumber) {
+        Iterator var2 = this.rooms.iterator();
+
+        Room room;
+        do {
+            if (!var2.hasNext()) {
+                return;
+            }
+
+            room = (Room)var2.next();
+        } while(room.getNumber() != roomNumber);
+
+        this.booking.cancelBooking(room);
+    }
+}
