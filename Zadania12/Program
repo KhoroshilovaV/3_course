@@ -1,0 +1,27 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+class Program {
+    private String name;
+    private List<Component> courses = new ArrayList();
+
+    public Program(String name) {
+        this.name = name;
+    }
+
+    public void addCourse(Component course) {
+        this.courses.add(course);
+    }
+
+    public void display() {
+        System.out.println("Учебная программа: " + this.name);
+        Iterator var1 = this.courses.iterator();
+
+        while(var1.hasNext()) {
+            Component course = (Component)var1.next();
+            course.display();
+        }
+
+    }
+}
