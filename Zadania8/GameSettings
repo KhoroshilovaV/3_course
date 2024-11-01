@@ -1,0 +1,36 @@
+import java.io.Serializable;
+
+class GameSettings implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private int resolutionWidth;
+    private int resolutionHeight;
+    private boolean fullscreen;
+    private String controlScheme;
+
+    public GameSettings(int resolutionWidth, int resolutionHeight, boolean fullscreen, String controlScheme) {
+        this.resolutionWidth = resolutionWidth;
+        this.resolutionHeight = resolutionHeight;
+        this.fullscreen = fullscreen;
+        this.controlScheme = controlScheme;
+    }
+
+    public int getResolutionWidth() {
+        return this.resolutionWidth;
+    }
+
+    public int getResolutionHeight() {
+        return this.resolutionHeight;
+    }
+
+    public boolean isFullscreen() {
+        return this.fullscreen;
+    }
+
+    public String getControlScheme() {
+        return this.controlScheme;
+    }
+
+    public String toString() {
+        return "Настройки игры{Ширина разрешения=" + this.resolutionWidth + ", Высота разрешения=" + this.resolutionHeight + ", Полноэкранный режим=" + this.fullscreen + ", Схема управления='" + this.controlScheme + "'}";
+    }
+}
