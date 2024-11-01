@@ -1,0 +1,31 @@
+import java.util.Scanner;
+
+public class HotelManagementApp {
+    public HotelManagementApp() {
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        HotelFacade hotel = new HotelFacade();
+        System.out.print("Введите номер комнаты для проверки доступности: ");
+        int roomNumber = scanner.nextInt();
+        if (hotel.checkAvailability(roomNumber)) {
+            System.out.println("Комната " + roomNumber + " доступна.");
+        } else {
+            System.out.println("Комната " + roomNumber + " недоступна.");
+        }
+
+        System.out.print("Введите сумму для бронирования номера " + roomNumber + ": $");
+        double amount = scanner.nextDouble();
+        if (hotel.bookRoom(roomNumber, amount)) {
+            System.out.println("Бронирование номера " + roomNumber + " успешно.");
+        } else {
+            System.out.println("Не удалось забронировать номер " + roomNumber + ".");
+        }
+
+        System.out.print("Введите номер комнаты для отмены бронирования: ");
+        int cancelRoomNumber = scanner.nextInt();
+        hotel.cancelRoom(cancelRoomNumber);
+        scanner.close();
+    }
+}
