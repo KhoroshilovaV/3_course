@@ -1,0 +1,42 @@
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+class GameController {
+    private List<Player> players = new ArrayList();
+    private List<GameObject> gameObjects = new ArrayList();
+    private GameEvent gameEvent = new GameEvent();
+
+    public GameController() {
+    }
+
+    public void addPlayer(Player player) {
+        this.players.add(player);
+        this.gameEvent.addPlayer(player);
+        System.out.println("Игрок " + player.getName() + " присоединился к игре.");
+    }
+
+    public void removePlayer(Player player) {
+        this.players.remove(player);
+        System.out.println("Игрок " + player.getName() + " вышел из игры.");
+    }
+
+    public void addGameObject(GameObject gameObject) {
+        this.gameObjects.add(gameObject);
+        System.out.println("Игровой объект типа " + gameObject.getType() + " добавлен.");
+    }
+
+    public void updateGameObjects() {
+        Iterator var1 = this.gameObjects.iterator();
+
+        while(var1.hasNext()) {
+            GameObject gameObject = (GameObject)var1.next();
+            gameObject.update();
+        }
+
+    }
+
+    public void notifyPlayers(String message) {
+        this.gameEvent.notifyPlayers(message);
+    }
+}
