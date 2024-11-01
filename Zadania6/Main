@@ -1,0 +1,17 @@
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) {
+        SurveyManager manager = new SurveyManager();
+
+        Survey poll = new Poll("Опрос о любимом цвете", Arrays.asList("Какой ваш любимый цвет?", "Вам нравится черный?"));
+        Survey test = new Test("Тест по основам Java", Arrays.asList("Что такое полиморфизм?", "Объясните инкапсуляцию."));
+        Survey form = new Form("Анкета обратной связи", Arrays.asList("Откуда вы узнали о нас?", "Что мы можем улучшить?"));
+
+        manager.addSurvey(poll);
+        manager.addSurvey(test);
+        manager.addSurvey(form);
+
+        manager.displaySurveys();
+    }
+}
