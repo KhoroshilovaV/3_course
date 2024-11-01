@@ -1,0 +1,35 @@
+public class BookBuilder {
+    protected String title;
+    protected String author;
+    protected String genre;
+    protected int pages;
+
+    // Метод для задания названия
+    public BookBuilder setTitle(String title) {
+        this.title = title;
+        return this;
+    }
+
+    // Метод для задания автора
+    public BookBuilder setAuthor(String author) {
+        this.author = author;
+        return this;
+    }
+
+    // Метод для задания жанра
+    public BookBuilder setGenre(String genre) {
+        this.genre = genre;
+        return this;
+    }
+
+    // Метод для задания количества страниц
+    public BookBuilder setPages(int pages) {
+        this.pages = pages;
+        return this;
+    }
+
+    // Метод для создания экземпляра Book
+    public Book build() {
+        return new Book(this);
+    }
+}
