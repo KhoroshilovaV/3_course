@@ -1,0 +1,63 @@
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+
+class GameSettingsManager {
+    private static final String SETTINGS_FILE = "gameSettings.dat";
+
+    GameSettingsManager() {
+    }
+
+    public void saveSettings(GameSettings settings) {
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("gameSettings.dat"));
+
+            try {
+                oos.writeObject(settings);
+                System.out.println("Настройки сохранены.");
+            } catch (Throwable var6) {
+                try {
+                    oos.close();
+                } catch (Throwable var5) {
+                    var6.addSuppressed(var5);
+                }
+
+                throw var6;
+            }
+
+            oos.close();
+        } catch (IOException var7) {
+            System.err.println("Ошибка при сохранении настроек: " + var7.getMessage());
+        }
+
+    }
+
+    public GameSettings loadSettings() {
+        try {
+            ObjectInputStream ois = new ObjectInputStream(new FileInputStream("gameSettings.dat"));
+
+            GameSettings var3;
+            try {
+                GameSettings settings = (GameSettings)ois.readObject();
+                System.out.println("Настройки восстановлены.");
+                var3 = settings;
+            } catch (Throwable var5) {
+                try {
+                    ois.close();
+                } catch (Throwable var4) {
+                    var5.addSuppressed(var4);
+                }
+
+                throw var5;
+            }
+
+            ois.close();
+            return var3;
+        } catch (ClassNotFoundException | IOException var6) {
+            System.err.println("Ошибка при восстановлении настроек: " + var6.getMessage());
+            return null;
+        }
+    }
+}
